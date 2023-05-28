@@ -26,7 +26,7 @@ The KeyVault browser extension is written using the Web Extension API and React.
 ```bash
    git clone https://github.com/KeyVault/keyvault.git
 ```
-
+\
 2.  Install the dependencies:
 
 ```bash
