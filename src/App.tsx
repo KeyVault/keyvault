@@ -1,12 +1,25 @@
-import React from 'react';
-import logo from './logo-light.png';
 import './App.css';
+import React from 'react';
+import { FC } from 'react'
+import HelloWorld from './components/HelloWorld'
+import List from './components/list'
 
-function App() {
+const avengers = [
+  { name: 'Captain America' },
+  { name: 'Iron Man' },
+  { name: 'Black Widow' },
+  { name: 'Thor' },
+  { name: 'Hawkeye' },
+  { name: 'Vision' },
+  { name: 'Hulk' },
+]
+
+const App: FC = () => {
   return (
-    <>
-    
-    </>
+    <div className="App">
+      <HelloWorld />
+      <List data={avengers} />
+    </div>
   );
 }
 
