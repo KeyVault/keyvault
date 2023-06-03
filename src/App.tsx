@@ -1,8 +1,9 @@
 import './App.css';
 import React from 'react';
-import { FC } from 'react'
+
 import HelloWorld from './components/HelloWorld'
 import List from './components/list'
+import Layout from './components/layout/layout';
 
 const avengers = [
   { name: 'Captain America' },
@@ -14,12 +15,12 @@ const avengers = [
   { name: 'Hulk' },
 ]
 
-const App: FC = () => {
+const App = () => {
   return (
-    <div className="App">
+    <Layout>
       <HelloWorld />
       <List data={avengers} />
-    </div>
+    </Layout>
   );
 }
 
