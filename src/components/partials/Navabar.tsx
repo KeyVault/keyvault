@@ -1,36 +1,16 @@
-import { Routes, Route, Link, Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import { BsDatabaseFillLock } from "react-icons/bs";
 import { MdPassword } from "react-icons/md";
 import { TbBrowser } from "react-icons/tb";
 import { IoMdSettings } from "react-icons/io";
-import CurrentTab from "../../pages/CurrentTab";
-import Settings from "../../pages/Settings";
-import Vault from "../../pages/Vault";
-import PasswordGenerator from "../../pages/PasswordGenerator";
-import Auth from "../../pages/Auth";
-import NotFound404 from "../../pages/NotFound404";
+
+import React from "react";
+
 
 function Navbar() {
   return (
     <>
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<CurrentTab />} />
-          <Route path="/vault" element={<Vault />} />
-          <Route path="/password-generator" element={<PasswordGenerator />} />
-          <Route path="/settings" element={<Settings />} />
-          <Route path="/auth" element={<Auth />} />
-
-          <Route path="*" element={<NotFound404 />} />
-        </Route>
-      </Routes>
-    </>
-  );
-}
-
-function Layout() {
-  return (
-    <div>
+      <div>
       <div className="fixed bottom-0 left-0 z-50 w-full h-16 bg-white border-t border-gray-200 dark:bg-gray-700 dark:border-gray-600">
         <div className="grid h-full max-w-lg grid-cols-4 mx-auto font-medium">
           <Link to="/" className="pt-2">
@@ -88,8 +68,10 @@ function Layout() {
             the child routes we defined above. */}
       <Outlet />
     </div>
+    </>
   );
 }
+
 
 
 export default Navbar;
