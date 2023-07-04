@@ -2,19 +2,25 @@
 import React, { ReactNode } from 'react';
 import Navbar from '../partials/Navabar';
 
-interface Props {
+interface BaseLayoutProps {
+    showNavBar: boolean;
     children?: ReactNode
 }
-const Layout =({children, ...props}: Props) =>{
+const BaseLayout: React.FC<BaseLayoutProps> = ({
+    showNavBar = true,
+    children,
+}) => {
     return(
         <>
-            <main>{children}</main> 
-            <div>
-                <Navbar />
-            </div>
+            <main>
+                
+                <div className="app">{children}</div>
+
+                {showNavBar && <Navbar />}
+            </main> 
             
         </>
-    )
-}
+    );
+};
 
-export default Layout;
+export default BaseLayout;

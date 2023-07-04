@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useState, ReactNode } from "react";
+import { createContext, useContext, useEffect, useState, ReactNode, Provider } from "react";
 import { supabase } from "../supabase/client";
 import { User } from "@supabase/supabase-js";
 
@@ -10,6 +10,8 @@ interface AuthContextProps {
   signOut: () => Promise<any>; // Adjust the return type accordingly
   passwordReset: (email: string) => Promise<any>; // Adjust the return type accordingly
   updatePassword: (updatedPassword: string) => Promise<any>; // Adjust the return type accordingly
+  singInWithDiscord: () => Promise<any>;
+  singInWithGoogle: () => Promise<any>;
 }
 
 const AuthContext = createContext<AuthContextProps>({} as AuthContextProps);
@@ -18,6 +20,7 @@ export const useAuth = () => useContext(AuthContext);
 
 const login = (email: string, password: string) =>
   supabase.auth.signInWithPassword({ email, password });
+
 
 const signOut = () => supabase.auth.signOut();
 
@@ -28,6 +31,9 @@ const passwordReset = (email: string) =>
 
 const updatePassword = (updatedPassword: string) =>
   supabase.auth.updateUser({ password: updatedPassword });
+
+const singInWithDiscord = () => supabase.auth.signInWithOAuth({ provider: "discord"});
+const singInWithGoogle = () => supabase.auth.signInWithOAuth({ provider: "google"});
 
 interface AuthProviderProps {
   children: ReactNode;
@@ -74,6 +80,8 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
         signOut,
         passwordReset,
         updatePassword,
+        singInWithDiscord,
+        singInWithGoogle
       }}
     >
       {!loading && children}
