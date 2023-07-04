@@ -6,7 +6,7 @@ import { FcGoogle } from "react-icons/fc";
 import { useNavigate } from "react-router-dom";
 import BaseLayout from "../components/layouts/BaseLayout";
 
-const RegisterPage = () => {
+const ForgotPasswordPage = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -99,34 +99,7 @@ const RegisterPage = () => {
               </p>
               <hr className="h-px bg-gray-400 border dark:bg-gray-700 w-36" />
             </div>
-            <button
-              aria-label="Continue with google"
-              className="shadow-lg relative bg-white font-bold  justify-center ease-in-out  hover:!bg-neutral-100 py-3.5 px-4 border rounded-lg border-gray-500 flex items-center w-full mt-2"
-            >
-              <FcGoogle />
-              <p className="text-base font-medium ml-4 text-slate-900">
-                Continue with Google
-              </p>
-            </button>
-            <button
-              aria-label="Continue with Discord"
-              className="shadow-lg relative bg-[#5865F2] font-bold justify-center ease-in-out hover:!bg-opacity-90 py-3.5 px-4 border rounded-lg border-gray-500 flex items-center w-full mt-5"
-            >
-              <BsDiscord className="text-white" />
-              <p className="text-base font-medium ml-4 text-white">
-                Continue with Discord
-              </p>
-            </button>
 
-            <div className="mt-8 flex justify-evenly text-sm">
-              <div className="hover:text-blue-800 text-blue-600">
-                <Link to={"/login"}>
-                  <div className="hover:text-blue-800 text-blue-600 py-2 px-8">
-                    Already a User? Login
-                  </div>
-                </Link>
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -134,4 +107,4 @@ const RegisterPage = () => {
   );
 };
 
-export default RegisterPage;
+export default ForgotPasswordPage;
