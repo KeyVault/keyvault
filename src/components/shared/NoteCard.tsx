@@ -32,26 +32,29 @@ const NoteCard: React.FC<NoteProps> = ({
     <>
     <div className="my-2 py-4 bg-neutral-800 max-w rounded-md flex flex-row justify-start">
      
-      <div className="text-neutral-50">
+      <div className="text-neutral-50 mt-2">
         <TextIcon
         LeftIcon={FiPaperclip}
         iconClassName="w-8 h-8 mx-8" />
-        </div>
-      
-      <div className="flex flex-row justify-between">
-        <div className="flex flex-col mr-24">
-          <h2 className="">{note.name}</h2>
-         
-        </div>
-
-        <div className="absolute right-12">
-          <button className="cursor-pointer btn btn-neutral text-neutral-50">
-            <TextIcon
-            LeftIcon={FiCopy}/>
-          </button>
-        </div>
       </div>
-    </div>
+     
+     <div className="flex flex-row justify-between">
+       <div className="flex flex-col mr-24">
+         <h2 className="">{note.name}</h2>
+         <p></p>
+       </div>
+
+       <div className="absolute right-12">
+         <div className="tooltip" data-tip="Copy Username">
+           <button className="cursor-pointer btn bg-neutral-800 border-neutral-800 text-neutral-50 hover:bg-neutral-800">
+             <TextIcon
+             LeftIcon={FiCopy}/>
+           </button>
+         </div>
+
+       </div>
+     </div>
+   </div>
     </>
   );
 };

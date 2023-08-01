@@ -10,8 +10,13 @@ interface AuthContextProps {
   signOut: () => Promise<any>; // Adjust the return type accordingly
   passwordReset: (email: string) => Promise<any>; // Adjust the return type accordingly
   updatePassword: (updatedPassword: string) => Promise<any>; // Adjust the return type accordingly
-  singInWithDiscord: () => Promise<any>;
-  singInWithGoogle: () => Promise<any>;
+  signInWithDiscord: () => Promise<any>;
+  signInWithGoogle: () => Promise<any>;
+  signInWithTwitter: () => Promise<any>;
+  signInWithFacebook: () => Promise<any>;
+  signInWithGithub: () => Promise<any>;
+  signInWithNotion: () => Promise<any>;
+  signInWithSlack: () => Promise<any>;
 }
 
 const AuthContext = createContext<AuthContextProps>({} as AuthContextProps);
@@ -32,8 +37,14 @@ const passwordReset = (email: string) =>
 const updatePassword = (updatedPassword: string) =>
   supabase.auth.updateUser({ password: updatedPassword });
 
-const singInWithDiscord = () => supabase.auth.signInWithOAuth({ provider: "discord"});
-const singInWithGoogle = () => supabase.auth.signInWithOAuth({ provider: "google"});
+const signInWithDiscord = () => supabase.auth.signInWithOAuth({ provider: "discord"});
+const signInWithGoogle = () => supabase.auth.signInWithOAuth({ provider: "google"});
+const signInWithTwitter = () => supabase.auth.signInWithOAuth({ provider: "twitter"});
+const signInWithFacebook = () => supabase.auth.signInWithOAuth({ provider: "facebook"});
+const signInWithGithub = () => supabase.auth.signInWithOAuth({ provider: "github"});
+const signInWithNotion = () => supabase.auth.signInWithOAuth({ provider: "notion"});
+const signInWithSlack = () => supabase.auth.signInWithOAuth({ provider: "slack"});
+
 
 interface AuthProviderProps {
   children: ReactNode;
@@ -80,8 +91,13 @@ const AuthProvider = ({ children }: AuthProviderProps) => {
         signOut,
         passwordReset,
         updatePassword,
-        singInWithDiscord,
-        singInWithGoogle
+        signInWithDiscord,
+        signInWithGoogle,
+        signInWithTwitter,
+        signInWithFacebook,
+        signInWithGithub,
+        signInWithNotion,
+        signInWithSlack
       }}
     >
       {!loading && children}
