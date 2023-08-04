@@ -13,7 +13,6 @@ const BaseLayout: React.FC<BaseLayoutProps> = ({
     return(
         <>
             <main>
-                
                 <div className="app">{children}</div>
 
                 {showNavBar && <Navbar />}

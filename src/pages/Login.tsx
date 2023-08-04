@@ -79,15 +79,15 @@ const LoginPage = () => {
 
       <div className="w-full">
           <div className="flex flex-col items-center justify-center">
-            <div className="bg-white shadow rounded lg:w-1/3  md:w-1/2 w-full p-10 mt-16">
+            <div className="bg-white shadow rounded   md:w-1/2 w-full p-10 mt-16">
               <button
                 onClick={() => handleLoginWithProvider(signInWithGoogle, "google")}
                 aria-label="Continue with google"
-                className="shadow-lg relative bg-neutral-50 font-bold  justify-center ease-in-out  hover:!bg-neutral-100 py-3.5 px-4 border-0 rounded-lg border-gray-500 flex items-center w-full mt-10"
+                className="shadow-lg relative bg-neutral-50 font-bold  justify-center ease-in-out  hover:!bg-neutral-100 py-3.5 px-2 border-0 rounded-lg border-gray-500 flex items-center w-full mt-5"
               >
                 <FcGoogle />
                 <p className="text-base font-medium ml-4 text-slate-900">
-                  Sing in with Google
+                  Sign in with Google
                 </p>
               </button>
               <button
@@ -97,46 +97,40 @@ const LoginPage = () => {
               >
                 <BsDiscord className="text-white" />
                 <p className="text-base font-medium ml-4 text-white">
-                  Sing in with Discord
+                  Sign in with Discord
                 </p>
               </button>
               <button
-                onClick={() => handleLoginWithProvider(signInWithTwitter, "twitter")}
-                aria-label="Continue with Twitter"
-                className="shadow-lg relative bg-[#1DA1F2] font-bold justify-center ease-in-out hover:!bg-opacity-90 py-3.5 px-4 border-0 rounded-lg border-gray-500 flex items-center w-full mt-5"
-              >
-                <BsTwitter className="text-white" />
-                <p className="text-base font-medium ml-4 text-white">
-                  Sing in with Twitter
-                </p>
-              </button>
-
-              <div className="flex flex-row justify-between space-x-4 md:space-x-6">
-                <button
                   onClick={() => handleLoginWithProvider(signInWithFacebook, "facebook")}
                   aria-label="Continue with Facebook"
-                  className="flex-1 shadow-lg relative bg-[#3b5998] font-bold justify-center ease-in-out hover:!bg-opacity-90 py-4 px-3.5 md:px-10 border-0 rounded-lg border-gray-500 flex items-center mt-5"
+                  className="shadow-lg relative bg-[#3b5998] font-bold justify-center ease-in-out hover:!bg-opacity-90 py-3.5 px-4 border-0 rounded-lg border-gray-500 flex items-center w-full mt-5"
                 >
-                  <BsFacebook className="text-white mx-auto" />
+                  <BsFacebook className="text-base font-medium ml-4 text-white" />
+                  <p className="text-base font-medium ml-4 text-white">
+                  Sign in with Facebook
+                </p>
+                </button>
+
+              <div className="flex flex-row justify-between space-x-4 md:space-x-2 w-full">
+                <button
+                  onClick={() => handleLoginWithProvider(signInWithTwitter, "twitter")}
+                  aria-label="Continue with Twitter"
+                  className="flex-1 shadow-lg relative bg-[#1DA1F2] font-bold justify-center ease-in-out hover:!bg-opacity-90 py-4 px-3.5 md:px-8 border-0 rounded-lg border-gray-500 flex items-center mt-5"
+                >
+                  <BsTwitter className="text-white" />
                 </button>
                 <button
                   onClick={() => handleLoginWithProvider(signInWithGithub, "github")}
                   aria-label="Continue with GitHub"
-                  className="flex-1 shadow-lg relative bg-[#333] font-bold justify-center ease-in-out hover:!bg-opacity-60 py-4 px-3.5 md:px-10 border-0 rounded-lg border-gray-500 flex items-center mt-5"
+                  className="flex-1 shadow-lg relative bg-[#333] font-bold justify-center ease-in-out hover:!bg-opacity-60 py-4 px-3.5 md:px-8 border-0 rounded-lg border-gray-500 flex items-center mt-5"
                 >
                   <AiFillGithub className="text-white mx-auto" />
                 </button>
-                <button
-                  onClick={() => handleLoginWithProvider(signInWithNotion, "notion")}
-                  aria-label="Continue with Notion"
-                  className="flex-1 shadow-lg relative bg-neutral-200 font-bold justify-center ease-in-out hover:!bg-opacity-60 py-3 px-3.5 md:px-10 border-0 rounded-lg border-gray-500 flex items-center mt-5"
-                >
-                  <SiNotion className="text-[#37352F] mx-auto" />
-                </button>
+                
                 <button
                   onClick={() => handleLoginWithProvider(signInWithSlack, "slack")}
                   aria-label="Continue with Slack"
-                  className="flex-1 shadow-lg relative bg-[#4A154B] font-bold justify-center ease-in-out hover:!bg-opacity-90 py-4 px-3.5 md:px-10 border-0 rounded-lg border-gray-500 flex items-center mt-5"
+                  className="flex-1 shadow-lg relative bg-[#4A154B] font-bold justify-center ease-in-out hover:!bg-opacity-90 py-4 px-3.5 md:px-8 border-0 rounded-lg border-gray-500 flex items-center mt-5"
                 >
                   <BsSlack className="text-white mx-auto" />
                 </button>
@@ -184,7 +178,7 @@ const LoginPage = () => {
                 </div>
               </div>
               <div className="mt-8">
-                <div className="text-center text-red-600">{errorMsg}</div>
+                <div className="h-8  text-center text-red-600">{errorMsg}</div>
                 <button
                   className={
                     "button block focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 text-sm font-semibold leading-none text-white focus:outline-none bg-indigo-700 border rounded hover:bg-indigo-600 py-4 w-full"

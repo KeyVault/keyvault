@@ -4,6 +4,7 @@ import NoteCard, { NoteProps } from '../components/shared/NoteCard';
 import TextIcon from '../components/shared/TextIcon';
 import { IoMdNotifications } from 'react-icons/io';
 import LoginCard from '../components/shared/LoginCard';
+import SearchComponent from '../components/shared/Search';
 
 
 const LoginData: LoginProps[] = [
@@ -31,18 +32,17 @@ const Vault = ({}) => {
 
   return (
     <>
-    <BaseLayout showNavBar={true}> </BaseLayout>
-      <div className='flex flex-col py-2 px-4 pb-24'>
+    <BaseLayout  showNavBar={true}> </BaseLayout>
+      <div className='flex flex-col py-5 px-4 pb-24 '>
         
-        <div className='flex flex-row '>
-          <input type="text" placeholder="Search Vault" className="input input-bordered w-full max-w" />
-         
-          <div className='ml-4 bg-neutral-800 rounded-full cursor-pointer hover:text-blue-500'>
+        <div className='flex flex-row'>
+          <SearchComponent />
+          <div className='ml-4 bg-neutral-800 rounded-full cursor-pointer hover:text-[#469BDF]'>
             <TextIcon
               iconClassName="w-6 h-6 m-3.5"
               LeftIcon={IoMdNotifications}
             >
-              <div className="badge badge-primary absolute ml-6 mb-2 font-bold text-white">3</div>
+              <span className=" inline-flex rounded-full h-2.5 w-2.5 bg-blue-600 absolute ml-7 mb-2 "></span>
             </TextIcon>
 
           </div>
@@ -53,12 +53,12 @@ const Vault = ({}) => {
           <div className='flex flex-row mt-2'>
             <button 
               onClick={() => handleCategorieOnClick("logins")}
-              className={activeCategorieButton === "logins" ? "bg-blue-700 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" : "bg-neutral-700 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" }>
+              className={activeCategorieButton === "logins" ? "bg-blue-700 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" : "ease-in duration-100 bg-neutral-700 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" }>
               Logins {LoginData.length}
             </button>
             <button
               onClick={() => handleCategorieOnClick("notes")} 
-              className={activeCategorieButton === "notes" ? "ml-4 bg-blue-700 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" : "ml-4 bg-neutral-700 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" }>
+              className={activeCategorieButton === "notes" ? "ml-4 bg-blue-700 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" : " ease-in duration-100 ml-4 bg-neutral-700 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" }>
               Notes {NoteData.length}
             </button>
           </div>

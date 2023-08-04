@@ -11,6 +11,7 @@ const RegisterPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
 
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
@@ -21,22 +22,27 @@ const RegisterPage = () => {
   };
 
   const handleSignup = async (event) => {
-    event.preventDefault();
-
-    setLoading(true);
-
-    const { error } = await supabase.auth.signUp({
-      email: email,
-      password: password,
-    });
-
-    if (error) {
-      alert(error.message);
-    } else {
-      alert("Successfully signed up");
-      navigate("/login");
+    try {
+      event.preventDefault();
+      setErrorMsg(" ");
+      setLoading(true);
+  
+      const { error } = await supabase.auth.signUp({
+        email: email,
+        password: password,
+      });
+  
+      if (error) {
+        setErrorMsg(error.message);
+      }
+      else {
+        alert("Successfully signed up");
+        navigate("/login");
+      }
+      setLoading(false); 
+    } catch (error) {
+      setErrorMsg(`Email&Pass Error: ${error}`);
     }
-    setLoading(false);
   };
 
   return (
@@ -81,6 +87,7 @@ const RegisterPage = () => {
               </div>
             </div>
             <div className="mt-8">
+            <div className="h-8 text-center  text-red-600">{errorMsg}</div>
               <button
                 className={
                   "button block focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 text-sm font-semibold leading-none text-white focus:outline-none bg-indigo-700 border rounded hover:bg-indigo-600 py-4 w-full"
@@ -91,33 +98,7 @@ const RegisterPage = () => {
                 {loading ? <span>Loading</span> : <span>Sign up</span>}
               </button>
             </div>
-
-            <div className="w-full flex items-center justify-between py-4">
-              <hr className="h-px bg-gray-400 border-1 dark:bg-gray-700 w-36" />
-              <p className="text-base font-medium leading-4 px-2.5 text-gray-400">
-                or
-              </p>
-              <hr className="h-px bg-gray-400 border dark:bg-gray-700 w-36" />
-            </div>
-            <button
-              aria-label="Continue with google"
-              className="shadow-lg relative bg-white font-bold  justify-center ease-in-out  hover:!bg-neutral-100 py-3.5 px-4 border rounded-lg border-gray-500 flex items-center w-full mt-2"
-            >
-              <FcGoogle />
-              <p className="text-base font-medium ml-4 text-slate-900">
-                Continue with Google
-              </p>
-            </button>
-            <button
-              aria-label="Continue with Discord"
-              className="shadow-lg relative bg-[#5865F2] font-bold justify-center ease-in-out hover:!bg-opacity-90 py-3.5 px-4 border rounded-lg border-gray-500 flex items-center w-full mt-5"
-            >
-              <BsDiscord className="text-white" />
-              <p className="text-base font-medium ml-4 text-white">
-                Continue with Discord
-              </p>
-            </button>
-
+    
             <div className="mt-8 flex justify-evenly text-sm">
               <div className="hover:text-blue-800 text-blue-600">
                 <Link to={"/login"}>
