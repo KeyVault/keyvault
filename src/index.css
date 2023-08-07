@@ -17,3 +17,8 @@ html, body {
 }
 
 
+
+.flip-horizontal {
+  transform: scaleX(-1);
+}
+

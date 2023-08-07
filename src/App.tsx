@@ -9,8 +9,6 @@ import RegisterPage from './pages/Register';
 import Settings from './pages/Settings';
 import Vault from './pages/Vault';
 import AuthRoute from "./components/AuthRoute";
-import BaseLayout from './components/layouts/BaseLayout';
-import ForgotPassword from './pages/ForgotPassword';
 
 const App = () => {
 

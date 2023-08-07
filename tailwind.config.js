@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ["./src/**/*.{html,tsx}"],
+  content: ["./src/**/*.{html,tsx}",  "node_modules/flowbite-react/**/*.{js,jsx,ts,tsx}"],
   darkMode: 'class', // enables dark mode based on a class
   theme: {
     extend: {
@@ -30,5 +30,5 @@ module.exports = {
       backgroundColor: ['dark'], // Enable dark variant for background color
     }
   },
-  plugins: [require('@tailwindcss/forms')],
+  plugins: [require('@tailwindcss/forms'),  require('flowbite/plugin')],
 }

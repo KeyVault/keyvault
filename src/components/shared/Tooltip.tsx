@@ -24,7 +24,7 @@ const Tooltip: React.FC<TooltipProps> = ({ text, children }) => {
     >
       {children}
       {showTooltip && (
-        <div className="tooltip absolute bottom-full left-1/2 transform -translate-x-1/2 bg-dark text-white text-sm rounded p-2 ease-in  whitespace-nowrap">
+        <div className="ease-in duration-75 tooltip absolute bottom-full left-1/2 transform -translate-x-1/2 bg-dark text-white text-xs rounded p-2   whitespace-nowrap">
           {text}
         </div>
       )}

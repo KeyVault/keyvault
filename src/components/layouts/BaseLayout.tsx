@@ -14,7 +14,6 @@ const BaseLayout: React.FC<BaseLayoutProps> = ({
         <>
             <main>
                 <div className="app">{children}</div>
-
                 {showNavBar && <Navbar />}
             </main> 
             

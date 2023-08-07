@@ -57,7 +57,6 @@ function Navbar() {
                   LeftIcon={route.icon}
                 ></TextIcon>
 
-
               <span className="text-sm ">
                 {route.title}
               </span>

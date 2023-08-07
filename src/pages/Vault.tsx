@@ -3,8 +3,9 @@ import BaseLayout from '../components/layouts/BaseLayout';
 import NoteCard, { NoteProps } from '../components/shared/NoteCard';
 import TextIcon from '../components/shared/TextIcon';
 import { IoMdNotifications } from 'react-icons/io';
-import LoginCard from '../components/shared/LoginCard';
+import LoginCard, { LoginProps } from '../components/shared/LoginCard';
 import SearchComponent from '../components/shared/Search';
+import MasterAdd from '../components/shared/MasterAdd';
 
 
 const LoginData: LoginProps[] = [
@@ -33,6 +34,7 @@ const Vault = ({}) => {
   return (
     <>
     <BaseLayout  showNavBar={true}> </BaseLayout>
+    <MasterAdd createNewEntryType={activeCategorieButton} />
       <div className='flex flex-col py-5 px-4 pb-24 '>
         
         <div className='flex flex-row'>
